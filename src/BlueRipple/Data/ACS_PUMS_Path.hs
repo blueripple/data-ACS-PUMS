@@ -17,7 +17,7 @@ import qualified Data.Text as T
 import qualified Language.Haskell.TH.Env as Env
 
 dataDir :: T.Text
-dataDir = fromMaybe "../../bigData/IPUMS/" $$(Env.envQ "BR_ACS_PUMS_DATA")
+dataDir = fromMaybe "../../bigData/IPUMS/" $$(Env.envQ "BR_ACS_PUMS_DATA_DIR")
 
 pumsACS1YrCSV :: FilePath
 pumsACS1YrCSV = toString $ dataDir <> "/acsSelected2006To2018.csv"
