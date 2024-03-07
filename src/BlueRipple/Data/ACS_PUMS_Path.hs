@@ -9,7 +9,7 @@ module BlueRipple.Data.ACS_PUMS_Path
     module BlueRipple.Data.ACS_PUMS_Path
   )
 where
-
+import qualified BlueRipple.Data.CachingCore as BRC
 import qualified Frames as F
 import qualified Frames.Streamly.TH                     as F
 import qualified Frames.Streamly.ColumnUniverse         as FCU
@@ -17,7 +17,7 @@ import qualified Data.Text as T
 import qualified Language.Haskell.TH.Env as Env
 
 dataDir :: T.Text
-dataDir = fromMaybe "../../bigData/IPUMS/" $$(Env.envQ "BR_ACS_PUMS_DATA_DIR")
+dataDir = fromMaybe "../../bigData/IPUMS/" $ fmap toString $ $$(Env.envQ "BR_ACS_PUMS_DATA_DIR") >>= BRC.insureFinalSlash . toText
 
 pumsACS1YrCSV :: FilePath
 pumsACS1YrCSV = toString $ dataDir <> "/acsSelected2006To2018.csv"
