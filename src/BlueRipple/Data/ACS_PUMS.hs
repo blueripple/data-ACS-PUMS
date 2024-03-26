@@ -73,21 +73,23 @@ typedPUMSRowsLoader :: (K.KnitEffects r, BR.CacheEffects r)
                     => K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed))
 typedPUMSRowsLoader = typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2010_20CSV) Nothing
 
+data ACSWindow = ACSWindow Int
+
 acs1Yr2010_20 :: (K.KnitEffects r, BR.CacheEffects r)
-           => K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed))
-acs1Yr2010_20 = typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2010_20CSV) Nothing
+           => (ACSWindow, K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed)))
+acs1Yr2010_20 = (ACSWindow 1, typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2010_20CSV) Nothing)
 
 acs1Yr2012_21 :: (K.KnitEffects r, BR.CacheEffects r)
-              => K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed))
-acs1Yr2012_21 = typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2012_21CSV) (Just "acs1YR_Typed_2010_2021.bin")
+              => (ACSWindow, K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed)))
+acs1Yr2012_21 = (ACSWindow 1, typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2012_21CSV) (Just "acs1YR_Typed_2010_2021.bin"))
 
 acs1Yr2012_22 :: (K.KnitEffects r, BR.CacheEffects r)
-              => K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed))
-acs1Yr2012_22 = typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2012_22CSV) (Just "acs1YR_Typed_2012_2022.bin")
+              => (ACSWindow, K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed)))
+acs1Yr2012_22 = (ACSWindow 1, typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2012_22CSV) (Just "acs1YR_Typed_2012_2022.bin"))
 
 acs5Yr2016_22 :: (K.KnitEffects r, BR.CacheEffects r)
-              => K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed))
-acs5Yr2016_22 = typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2012_22CSV) (Just "acs5YR_Typed_2016_2022.bin")
+              => (ACSWindow, K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed)))
+acs5Yr2016_22 = (ACSWindow 5, typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2012_22CSV) (Just "acs5YR_Typed_2016_2022.bin"))
 
 
 pumsRowsLoader' :: (K.KnitEffects r, BR.CacheEffects r)
