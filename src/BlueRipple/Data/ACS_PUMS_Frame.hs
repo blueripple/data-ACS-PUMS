@@ -26,5 +26,7 @@ import           BlueRipple.Data.ACS_PUMS_Path
 
 import qualified Frames.Streamly.TH                     as F
 
-F.tableTypes' pumsACS1YrRowGen
-F.tableTypes' pumsACS1YrRowGen'
+--F.tableTypes' pumsACS1YrRowGen
+--F.tableTypes' pumsACS1YrRowGen'
+F.tableTypes' pumsACS1Yr2012_22RowGen
+--F.tableTypes' pumsACS5Yr2016_22RowGen

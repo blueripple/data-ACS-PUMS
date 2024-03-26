@@ -83,7 +83,11 @@ acs1Yr2012_21 = typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2012_21
 
 acs1Yr2012_22 :: (K.KnitEffects r, BR.CacheEffects r)
               => K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed))
-acs1Yr2012_22 = typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2012_22CSV) (Just "acs1YR_Typed_2010_2022.bin")
+acs1Yr2012_22 = typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2012_22CSV) (Just "acs1YR_Typed_2012_2022.bin")
+
+acs5Yr2016_22 :: (K.KnitEffects r, BR.CacheEffects r)
+              => K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed))
+acs5Yr2016_22 = typedPUMSRowsLoader' (BR.LocalData $ T.pack BR.pumsACS1Yr2012_22CSV) (Just "acs5YR_Typed_2016_2022.bin")
 
 
 pumsRowsLoader' :: (K.KnitEffects r, BR.CacheEffects r)
