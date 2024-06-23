@@ -68,6 +68,7 @@ typedPUMSRowsLoader' :: (K.KnitEffects r, BR.CacheEffects r)
 typedPUMSRowsLoader' dataPath mCacheKey =
   let cacheKey = fromMaybe "acs1YR_All_Typed.bin" mCacheKey
   in BR.cachedFrameLoader dataPath Nothing Nothing transformPUMSRow' Nothing cacheKey
+--  in BR.cachedMaybeFrameLoader @(F.RecordColumns BR.PUMS_Raw2) @(F.RecordColumns BR.PUMS_Raw2) @(F.RecordColumns BR.PUMS_Raw2) @PUMS_Typed dataPath Nothing Nothing id  transformPUMSRow' Nothing cacheKey
 
 typedPUMSRowsLoader :: (K.KnitEffects r, BR.CacheEffects r)
                     => K.Sem r (K.ActionWithCacheTime r (F.FrameRec PUMS_Typed))
@@ -797,6 +798,7 @@ intToSpeaksEnglish n
   | n `elem` [2, 3, 4, 5] = DT.SE_Yes
   | n == 6                = DT.SE_Some
   | otherwise             = DT.SE_No
+
 
 
 intToCensusDivision :: Int -> GT.CensusDivision

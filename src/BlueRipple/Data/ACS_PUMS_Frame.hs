@@ -28,5 +28,7 @@ import qualified Frames.Streamly.TH                     as F
 
 --F.tableTypes' pumsACS1YrRowGen
 --F.tableTypes' pumsACS1YrRowGen'
+
+-- NB: This has one extra col so can't be used to load the 2010-2020 data!!
 F.tableTypes' pumsACS1Yr2012_22RowGen
 --F.tableTypes' pumsACS5Yr2016_22RowGen

@@ -62,9 +62,9 @@ pumsACS1YrRowGen' :: F.RowGen
                      'F.ColumnByName
                      FCU.CommonColumns
 pumsACS1YrRowGen' = (F.rowGen pumsACS1YrCSV') { F.tablePrefix = "PUMS"
-                                             , F.separator   = F.CharSeparator ','
-                                             , F.rowTypeName = "PUMS_Raw2"
-                                             }
+                                              , F.separator   = F.CharSeparator ','
+                                              , F.rowTypeName = "PUMS_Raw2"
+                                              }
 
 pumsACS1Yr2012_21RowGen' :: F.RowGen
                             F.DefaultStream

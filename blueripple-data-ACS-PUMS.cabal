@@ -21,6 +21,7 @@ library
   other-modules:  BlueRipple.Data.ACS_PUMS_Frame, BlueRipple.Data.ACS_PUMS_Path
   hs-source-dirs: src
   ghc-options: -Wall
+  default-extensions: StrictData
   build-depends:
         blueripple-data-loading
       , blueripple-data-tools
